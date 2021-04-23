@@ -36,7 +36,7 @@ class DoctorFeedbackModel(db.Model):
 
     @classmethod
     def fetch_by_health_status_id(cls, health_status_id:int) -> 'DoctorFeedbackModel':
-        return cls.query.filter_by(health_status_id=health_status_id).first()
+        return cls.query.filter_by(health_status_id=health_status_id).all()
     
     @classmethod  
     def count_vote(cls, id:int) -> None:

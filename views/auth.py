@@ -16,13 +16,13 @@ from models.user import UserModel
 from models.role import RoleModel
 from models.user_role import UserRoleModel
 
-from forms.auth import RegisterForm, LogInForm, ForgotPasswordForm, PasswordResetForm
+from utilities.forms import RegisterForm, LogInForm
 
 from utilities.user_role_manager import UserPrivilege
 
 @login_manager.user_loader
 def load_user(user_id:int):
-    return UserModel.get(int(user_id)) # Fetch the user from the database
+    return UserModel.query.get(int(user_id)) # Fetch the user from the database
 
 
 """
@@ -40,12 +40,6 @@ def login():
                 user_id = user.id
                 
                 next = request.args.get('next')
-
-                # is_safe_url should check if the url is safe for redirects.
-                # See http://flask.pocoo.org/snippets/62/ for an example.                
-                if next != None: 
-                    if not is_safe_url(next, host_ip):
-                        return abort(400)
 
                 return redirect(next or url_for('index'))
 
@@ -105,5 +99,6 @@ def signup():
         #log in user
         login_user(this_user) #, remember=form.remember.data)
         flash('You are now logged in.', 'success')
+        return redirect(url_for('index'))
 
     return render_template('user/register.html', form=form)

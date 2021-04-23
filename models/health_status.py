@@ -30,7 +30,7 @@ class HealthStatusModel(db.Model):
 
     @classmethod
     def fetch_by_user_id(cls, user_id:int) -> 'HealthStatusModel':
-        return cls.query.filter_by(user_id=user_id).first()
+        return cls.query.filter_by(user_id=user_id).all()
 
     @classmethod  
     def update(cls, id:int, status:str=None) -> None:

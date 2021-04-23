@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% include 'includes/_messages.html' %}
 
  <div class="container">
     <div class="mt-4">
@@ -23,7 +24,7 @@
             <thead  class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">User Deedback</th>
+                    <th scope="col">User Feedback</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +32,6 @@
                     <tr>
                         <th scope="row">{{ user_feedback.id }}</th>
                         <td scope="row">{{ user_feedback.feedback }}</td>
-                        <td scope="row"><a class="btn btn-outline-primary" href="">Status Updates</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

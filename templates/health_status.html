@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% include 'includes/_messages.html' %}
 
  <div class="container">
     <div class="mt-4">
@@ -24,8 +25,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Health Status</th>
-                    <th scope="col">ID NO</th>
-                    <th scope="col">Phone</th>
+                    <!-- <th scope="col">ID NO</th>
+                    <th scope="col">Phone</th> -->
                     <th scope="col">...</th>
                 </tr>
             </thead>
@@ -33,8 +34,8 @@
                 {% for health_status in health_statuses %}
                     <tr>
                         <th scope="row">{{ health_status.id }}</th>
-                        <td scope="row">{{ health_status.statis }}</td>
-                        <td scope="row"><a class="btn btn-outline-primary" href="">Doctor Recommendations</a></td>
+                        <td scope="row">{{ health_status.status }}</td>
+                        <td scope="row"><a class="btn btn-outline-primary" href="{{ url_for('doctor_feedback', health_status_id=health_status.id ) }}">Doctor Recommendations</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

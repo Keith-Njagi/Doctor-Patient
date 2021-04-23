@@ -31,8 +31,8 @@ class UserFeedbackModel(db.Model):
         return cls.query.get(id)
 
     @classmethod
-    def fetch_by_user_id(cls, user_id:int) -> 'UserFeedbackModel':
-        return cls.query.filter_by(user_id=user_id).first()
+    def fetch_by_doctor_feedback_id(cls, doctor_feedback_id:int) -> 'UserFeedbackModel':
+        return cls.query.filter_by(doctor_feedback_id=doctor_feedback_id).all()
 
     @classmethod  
     def update(cls, id:int, feedback:str=None) -> None:

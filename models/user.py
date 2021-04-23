@@ -18,7 +18,6 @@ class UserModel(UserMixin, db.Model):
     user_roles = db.relationship('UserRoleModel', lazy='dynamic')
     health_statuses = db.relationship('HealthStatusModel', lazy='dynamic')
     doctors_feedback = db.relationship('DoctorFeedbackModel', lazy='dynamic')
-    # votes = db.relationship('VoteModel', lazy='dynamic')
 
     def __repr__(self):
         return '<UserModel %r>' % self.full_name

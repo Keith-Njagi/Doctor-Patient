@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 class Config(object):
     SECRET_KEY = 'randomsecret'
-    SQLALCHEMY_DATABASE_URI = 'sqlite://database.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False     
 
 app.config.from_object(Config)                   
@@ -23,7 +23,7 @@ db.init_app(app)
 def create_tables():
     db.create_all()
 
-csrf.init_app(app)
+# csrf.init_app(app)
 login_manager.init_app(app)
 
 login_manager.login_view = 'login'
@@ -41,9 +41,9 @@ def before_request():
     app.permanent_session_lifetime = timedelta(minutes=30)
 
 
-from resources.auth import *
-from resources.user_views import *
-from resources.doctor_views import *
+from views.auth import *
+from views.user_views import *
+from views.doctor_views import *
 
 
 if __name__ == '__main__':
