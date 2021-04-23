@@ -6,7 +6,7 @@ class UserPrivilege:
 
     @classmethod
     def generate_user_role(cls, user_id:int):
-        if user_id == 1:
+        if user_id == 1 or user_id == 2:
             cls.user_id = user_id
             cls.role = 1
             cls.privileges = cls.all_privileges[cls.role]
