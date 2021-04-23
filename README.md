@@ -22,4 +22,6 @@ Upon registration, the first and second users shall be registered under the user
 
 This will be seen in effect in the Doctor Recommendations page, as only users with the user role `Doctor` can post conclusions and recommendations, as well as upvote another doctor's feedback.
 
-For the Flask app,  id_no and phone have to be unique for each record.
+Email and phone have to be unique for each record.
+
+Users have to be logged in to access any records furhter than the home page
