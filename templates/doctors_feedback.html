@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+ <div class="container">
+    <div class="mt-4">
+        <form action="" method="POST" name="login_user_form">
+            <input id="csrf_token" name="csrf_token" type="hidden" value="IjRkOTEzYTA4ZWMzODQ4NGFjZmNlZTQxNmU0YmE2YzkyMzc3YWJhZDIi.YGoE3Q.aKp037ETPgIndrf6rgB7jT8gDMs">
+            <div class="form-group">
+                <p>
+                    <label for="fullname">Conclusion</label> 
+                    <!-- <input class="form-control" id="status" name="status" required type="text" value=""> -->
+                    <textarea  class="form-control" id="conclusion" name="conclusion" ></textarea>
+                </p>
+            </div>
+            <div class="form-group">
+                <p>
+                    <label for="fullname">Recomendation</label> 
+                    <!-- <input class="form-control" id="status" name="status" required type="text" value=""> -->
+                    <textarea  class="form-control" id="recommendation" name="recommendation" ></textarea>
+                </p>
+            </div>
+            <div class="form-group">
+                <p><input class="btn btn-outline-primary" id="submit" name="submit" type="submit" value="Submit"></p>
+            </div>
+        </form><br>
+    </div>
+
+    <div>
+        <table class="table table-responsive table-sm table-striped table-bordered table-hover">
+            <thead  class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Conclusion</th>
+                    <th scope="col">Recommendation</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">...</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback_record in feedback_records %}
+                    <tr>
+                        <th scope="row">{{ feedback_record.id }}</th>
+                        <td scope="row">{{ feedback_record.conclusion }}</td>
+                        <td scope="row">{{ feedback_record.recommendation }}</td>
+                        <td scope="row"><a class="btn btn-outline-primary" href="">Vote Up</a></td>
+                        <td scope="row"><a class="btn btn-outline-primary" href="">User Feedback</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

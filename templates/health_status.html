@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+ <div class="container">
+    <div class="mt-4">
+        <form action="" method="POST" name="login_user_form">
+            <input id="csrf_token" name="csrf_token" type="hidden" value="IjRkOTEzYTA4ZWMzODQ4NGFjZmNlZTQxNmU0YmE2YzkyMzc3YWJhZDIi.YGoE3Q.aKp037ETPgIndrf6rgB7jT8gDMs">
+            <div class="form-group">
+                <p>
+                    <label for="fullname">Health Status</label> 
+                    <!-- <input class="form-control" id="status" name="status" required type="text" value=""> -->
+                    <textarea  class="form-control" id="status" name="status" ></textarea>
+                </p>
+            </div>
+            <div class="form-group">
+                <p><input class="btn btn-outline-primary" id="submit" name="submit" type="submit" value="Submit"></p>
+            </div>
+        </form><br>
+    </div>
+
+    <div>
+        <table class="table table-responsive table-sm table-striped table-bordered table-hover">
+            <thead  class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Health Status</th>
+                    <th scope="col">ID NO</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">...</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for health_status in health_statuses %}
+                    <tr>
+                        <th scope="row">{{ health_status.id }}</th>
+                        <td scope="row">{{ health_status.statis }}</td>
+                        <td scope="row"><a class="btn btn-outline-primary" href="">Doctor Recommendations</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

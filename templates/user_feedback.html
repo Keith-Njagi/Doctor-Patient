@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+ <div class="container">
+    <div class="mt-4">
+        <form action="" method="POST" name="login_user_form">
+            <input id="csrf_token" name="csrf_token" type="hidden" value="IjRkOTEzYTA4ZWMzODQ4NGFjZmNlZTQxNmU0YmE2YzkyMzc3YWJhZDIi.YGoE3Q.aKp037ETPgIndrf6rgB7jT8gDMs">
+            <div class="form-group">
+                <p>
+                    <label for="fullname">User Feedback</label> 
+                    <!-- <input class="form-control" id="user_feedback" name="user_feedback" required type="text" value=""> -->
+                    <textarea  class="form-control" id="user_feedback" name="user_feedback" ></textarea>
+                </p>
+            </div>
+            <div class="form-group">
+                <p><input class="btn btn-outline-primary" id="submit" name="submit" type="submit" value="Submit"></p>
+            </div>
+        </form><br>
+    </div>
+
+    <div>
+        <table class="table table-responsive table-sm table-striped table-bordered table-hover">
+            <thead  class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User Deedback</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_feedback in user_feedbacks %}
+                    <tr>
+                        <th scope="row">{{ user_feedback.id }}</th>
+                        <td scope="row">{{ user_feedback.feedback }}</td>
+                        <td scope="row"><a class="btn btn-outline-primary" href="">Status Updates</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+ <div class="container">
+     <div >
+        {% if current_user == None %}
+        <a class="btn btn-success" href="127.0.0.1:5000//user/login">Login</a>
+        <a class="btn btn-success" href="127.0.0.1:5000//user/signup">Register</a>
+        {% else %}
+        <a class="btn btn-success" href="127.0.0.1:5000//user/logout">Logout</a>
+        {% endif %}
+     </div>
+     <br>
+
+    <div>
+        <table class="table table-responsive table-sm table-striped table-bordered table-hover">
+            <thead  class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">ID NO</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">...</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th scope="row">{{ user.id }}</th>
+                        <td scope="row">{{ user.fullname }}</td>
+                        <td scope="row">{{ user.id_no }}</td>
+                        <td scope="row">{{ user.phone }}</td>
+                        <td scope="row"><a class="btn btn-outline-primary" href="">Status Updates</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
