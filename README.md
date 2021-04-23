@@ -9,7 +9,7 @@ To set up flask:
         a. For windows computer:  venv\Scripts\activate
         b. For linux computer: source venv/bin/activate
 
-    3. pip install flask flask-sqlalchemy
+    3. pip install -r requirements.txt
 
 To run the flask app:   `python app.py`
 
