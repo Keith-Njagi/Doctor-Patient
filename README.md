@@ -24,4 +24,4 @@ This will be seen in effect in the Doctor Recommendations page, as only users wi
 
 Email and phone have to be unique for each record.
 
-Users have to be logged in to access any records furhter than the home page
+Users have to be logged in to access any records further than the home page
